@@ -1,9 +1,9 @@
 [info]
 title=Focus Mode
-desc=Shades/dims all lines except the current paragraph. Plugin active only for some lexers, call "Plugins/ Focus Mode/ Config".
+desc=Shades/dims all lines except the current paragraph. Plugin is active only for some lexers, call "Plugins/ Focus Mode/ Config".
 type=cudatext-plugin
 subdir=cuda_focus_mode
-homepage=
+homepage=https://github.com/CudaText-addons/cuda_focus_mode
 
 [item1]
 section=events
