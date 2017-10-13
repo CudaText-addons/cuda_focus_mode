@@ -4,6 +4,7 @@ desc=Shades/dims all lines except the current paragraph. Plugin is active only f
 type=cudatext-plugin
 subdir=cuda_focus_mode
 homepage=https://github.com/CudaText-addons/cuda_focus_mode
+api=1.0.200
 
 [item1]
 section=events
@@ -13,4 +14,4 @@ events=on_caret,on_lexer
 section=commands
 caption=Focus Mode\Config
 method=config
-
+menu=o

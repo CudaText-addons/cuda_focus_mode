@@ -3,11 +3,11 @@ it shades (dims) all lines except the current paragraph (in which 1st caret plac
 paragraphs should be separated by empty lines.
 when caret is on empty line, none is shaded.
 
-it works only for some lexers.
-to configure which lexers are handled, call menuitem "Plugins/ Focus Mode/ Config" and edit opened config file (restart CudaText then). you have options there in [op] section:
+it works only for some file extensions.
+to configure which file extensions are handled, call menu item "Options / Settings-plugins / Focus Mode/ Config" and edit opened config file (restart CudaText then). you have options in [op] section:
 
-- lexers: comma-separated list of lexers for which plugin works
-- dim_value: this is dim value from 0 (no effect) to 255 (text is transparent). good middle value is 100..150.
+- file_ext: comma-separated list of file extensions.
+- dim_value: dim value from 0 (no effect) to 255 (text is transparent). good middle value is 100..150.
 
 
 author: Alexey T (CudaText)

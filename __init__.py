@@ -3,19 +3,16 @@ from cudatext import *
 
 INI = app_path(APP_DIR_SETTINGS)+os.sep+'cuda_focus_mode.ini'
 
-if app_api_version()<'1.0.196':
-    msg_box('Focus Mode plugin needs newer CudaText >= 1.16.2', MB_OK+MB_ICONERROR)
-
 class Command:
     def __init__(self):
         self.load_opt()
 
     def load_opt(self):
-        self.lexers = ini_read(INI, 'op', 'lexers', 'Fountain,SomeOtherLexer')
+        self.file_ext = ini_read(INI, 'op', 'file_ext', 'fountain,someext2,someext3')
         self.dim_value = int(ini_read(INI, 'op', 'dim_value', '150'))
 
     def save_opt(self):
-        ini_write(INI, 'op', 'lexers', self.lexers)
+        ini_write(INI, 'op', 'file_ext', self.file_ext)
         ini_write(INI, 'op', 'dim_value', str(self.dim_value))
 
     def config(self):
@@ -28,12 +25,19 @@ class Command:
     def on_lexer(self, ed_self):
         self.work()
 
+    def is_filename_ok(self):
+        fn = ed.get_filename()
+        if not fn: return
+        ext = os.path.basename(fn)
+        n = ext.find('.')
+        if n<0: return
+        ext = ext[n+1:]
+        return ','+ext+',' in ','+self.file_ext+','
+
+
     def work(self):
         ed.dim(DIM_DELETE_ALL)
-
-        lexer = ed.get_prop(PROP_LEXER_FILE, '')
-        if ','+lexer+',' not in ','+self.lexers+',':
-            return
+        if not self.is_filename_ok(): return
 
         x, y, x2, y2 = ed.get_carets()[0]
         s = ed.get_text_line(y)
