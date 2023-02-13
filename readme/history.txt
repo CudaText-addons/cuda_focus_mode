@@ -1,7 +1,10 @@
+2023.02.13
++ add: command "Toggle" in "Plugins / Focus Mode" menu
+* change: config file is changed to (CudaText)/settings/plugins.ini (section is changed too)
 
 2017.10.14
-* changed option "lexers" to "file_ext" - file extensions list
-* menu item moved to menu "Options / Settings-plugins"
+* change: changed option "lexers" to "file_ext" - file extensions list
+* change: menu item moved to menu "Options / Settings-plugins"
 
 2017.09.01
 initial
