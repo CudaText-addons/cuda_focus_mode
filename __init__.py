@@ -7,15 +7,16 @@ SECTION = 'focus_mode'
 class Command:
     def __init__(self):
         self.load_opt()
-        self.active = True
 
     def load_opt(self):
         self.file_ext = ini_read(INI, SECTION, 'file_extensions', 'txt,fountain')
         self.dim_value = int(ini_read(INI, SECTION, 'dim_value', '150'))
+        self.active = ini_read(INI, SECTION, 'active', '0')=='1'
 
     def save_opt(self):
         ini_write(INI, SECTION, 'file_extensions', self.file_ext)
         ini_write(INI, SECTION, 'dim_value', str(self.dim_value))
+        ini_write(INI, SECTION, 'active', '1' if self.active else '0')
 
     def config(self):
         self.save_opt()
@@ -67,4 +68,5 @@ class Command:
 
     def toggle(self):
         self.active = not self.active
+        msg_status('[Focus Mode] '+('Activated' if self.active else 'Deactivated'))
         self.work()
