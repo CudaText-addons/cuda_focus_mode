@@ -13,7 +13,7 @@ plugin gives options in [focus_mode] section of 'settings/plugins.ini':
           by default this is 0 (off). if it's off, to run the plugin, call menu item
           "Plugins / Focus Mode / Toggle".
 - file_extensions: comma-separated list of file extensions, which plugin handles.
-- dim_value: dim value from 0 (no effect) to 255 (text is transparent.
+- dim_value: dim value from 0 (no effect) to 255 (text is transparent).
              good middle value is 100..150.
 
 
