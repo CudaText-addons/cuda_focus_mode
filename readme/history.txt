@@ -1,3 +1,8 @@
+2024.08.24
++ add: added option 'active'
+* change: option 'active' is now OFF by default
++ add: command 'Config' puts caret on plugin's section
+
 2023.02.13
 + add: command "Toggle" in "Plugins / Focus Mode" menu
 * change: config file is changed to (CudaText)/settings/plugins.ini (section is changed too)
@@ -7,4 +12,4 @@
 * change: menu item moved to menu "Options / Settings-plugins"
 
 2017.09.01
-initial
+initial version
