@@ -21,6 +21,13 @@ class Command:
         self.save_opt()
         file_open(INI)
 
+        lines = [ed.get_text_line(i) for i in range(ed.get_line_count())]
+        try:
+            index = lines.index('['+SECTION+']')
+            ed.set_caret(0, index)
+        except:
+            pass
+
     def on_caret(self, ed_self):
         self.work()
 
