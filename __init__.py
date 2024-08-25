@@ -1,6 +1,9 @@
 import os
 from cudatext import *
 
+from cudax_lib import get_translation
+_ = get_translation(__file__)  # I18N
+
 INI = os.path.join(app_path(APP_DIR_SETTINGS), 'plugins.ini')
 SECTION = 'focus_mode'
 
@@ -69,5 +72,5 @@ class Command:
 
     def toggle(self):
         self.active = not self.active
-        msg_status('[Focus Mode] '+('Activated' if self.active else 'Deactivated'))
+        msg_status(_('[Focus Mode] ')+(_('Activated') if self.active else _('Deactivated')))
         self.work()
