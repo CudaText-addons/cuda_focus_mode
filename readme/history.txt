@@ -1,4 +1,5 @@
-2024.08.24
+2024.08.25
++ add: support translation
 + add: added option 'active'
 * change: option 'active' is now OFF by default
 + add: command 'Config' puts caret on plugin's section
