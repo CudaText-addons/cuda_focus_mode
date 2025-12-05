@@ -54,21 +54,24 @@ class Command:
         if not self.active: return
         if not self.is_filename_ok(): return
 
-        x, y, x2, y2 = ed.get_carets()[0]
-        s = ed.get_text_line(y)
-        if not s:
+        max_y = ed.get_line_count()-1
+        carets = ed.get_carets()
+        x, y, x2, y2 = carets[0]
+
+        if ed.get_line_len(y)==0:
             return
 
         y1 = y
-        while y1>0 and bool(ed.get_text_line(y1-1)): y1-=1
+        while y1>0 and (ed.get_line_len(y1-1)>0):
+            y1-=1
         y2 = y
-        max_y = ed.get_line_count()-1
-        while y2<max_y and bool(ed.get_text_line(y2+1)): y2+=1
+        while y2<max_y and (ed.get_line_len(y2+1)>0):
+            y2+=1
 
-        #print('para', y1, y2)
         if y1>0:
             ed.dim(DIM_ADD, 0, y1-1, self.dim_value)
-        ed.dim(DIM_ADD, y2+1, max_y, self.dim_value)
+        if y2+1<=max_y:
+            ed.dim(DIM_ADD, y2+1, max_y, self.dim_value)
 
     def toggle(self):
         self.active = not self.active
