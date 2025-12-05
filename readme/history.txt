@@ -1,3 +1,6 @@
+2025.12.06
++ add: use faster API
+
 2024.08.25
 + add: support translation
 + add: added option 'active'
