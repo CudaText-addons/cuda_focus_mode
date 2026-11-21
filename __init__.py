@@ -40,7 +40,7 @@ class Command:
         self.work()
 
     def is_filename_ok(self):
-        fn = ed.get_filename()
+        fn = ed.get_prop(PROP_FN, '')
         if not fn: return
         ext = os.path.basename(fn)
         n = ext.find('.')
